@@ -1,0 +1,117 @@
+$border-color: #a7a7a7;
+
+.container {
+    width: 100%;
+    height: 100%;
+    border: 1px solid transparent;
+    padding: 50px;
+    min-width: 365px;
+    overflow-y: auto;
+    h1 {
+        text-align: center;
+        font-size: 40px;
+    }
+    .input-item {
+        width: 100%;
+        border: 1px solid $border-color;
+        outline: none;
+        font-size: 1rem;
+        padding: 10px 15px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+
+        &:hover {
+            border-width: 1.25px;
+        }
+    }
+    .filter {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 5px;
+        .filter-buttons {
+            display: flex;
+            .filter-button:nth-child(2) {
+                margin: 0 5px;
+            }
+        }
+        .filter-button {
+            color: black;
+            padding: 10px;
+            border: 1px solid black;
+            cursor: pointer;
+            transform: all 0.5s ease;
+            user-select: none;
+            &:hover {
+                background-color: #21b0aa;
+            }
+            &:active {
+                border-color: white;
+            }
+        }
+        .active {
+            background-color: #21b0aa;
+        }
+    }
+    .check-all {
+        margin: 25px 0;
+        padding: 15px 5px;
+        border-bottom: 1px solid $border-color;
+        border-top: 1px solid $border-color;
+        .check-all-name {
+            display: inline-block;
+            margin-left: 15px;
+            font-size: 1.25rem;
+        }
+        .todo-item-left {
+            float: right;
+            font-size: 1.25rem;
+        }
+    }
+    .todo-container {
+        max-height: 350px;
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        .todo-item {
+            width: 100%;
+            margin: 5px auto;
+            padding: 10px 5px;
+            cursor: pointer;
+            &:hover {
+                background-color: #eeeeee;
+            }
+            input[type='checkbox'] {
+                cursor: pointer;
+            }
+            .todo-item-name {
+                display: inline-block;
+                margin-left: 15px;
+                font-size: 1.25rem;
+                transform: all 0.5s ease;
+            }
+            .completed {
+                text-decoration: line-through;
+            }
+            span[role='img'] {
+                display: flex;
+                align-items: center;
+                float: right;
+                cursor: pointer;
+                font-size: 0.75rem;
+            }
+        }
+    }
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 20px;
+        .check-all {
+            margin: 10px 0;
+        }
+        .filter .filter-button {
+            padding: 2px;
+        }
+    }
+}
