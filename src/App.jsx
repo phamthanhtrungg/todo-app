@@ -15,28 +15,17 @@ function App() {
 
     useEffect(() => {
         function getTodos() {
-            let storageTodos = null;
-            if (localStorage) {
-                storageTodos = localStorage.getItem('todos');
-            } else if (sessionStorage) {
-                storageTodos = sessionStorage.getItem('todos');
-            }
+            const storageTodos = window.localStorage.getItem('todos');
             if (storageTodos) {
                 setTodos(JSON.parse(storageTodos));
-                setInited(true);
             }
+            setInited(true);
         }
         getTodos();
     }, []);
 
     useEffect(() => {
-        if (inited) {
-            if (localStorage) {
-                localStorage.setItem('todos', JSON.stringify(todos));
-            } else if (sessionStorage) {
-                sessionStorage.setItem('todos', JSON.stringify(todos));
-            }
-        }
+        inited && window.localStorage.setItem('todos', JSON.stringify(todos));
     }, [inited, todos]);
     return (
         <div className='container'>
